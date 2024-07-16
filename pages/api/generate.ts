@@ -1,6 +1,6 @@
 import { OpenAIStream, OpenAIStreamPayload } from "../../utils/OpenAIStream";
 
-if (!process.env.OPENAI_API_KEY) {
+if (!process.env.GROQ_API_KEY) {
   throw new Error("Missing env var from OpenAI");
 }
 
@@ -35,7 +35,7 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   const payload: OpenAIStreamPayload = {
-    model: "gpt-3.5-turbo",
+    model: "llama3-8b-8192",
     messages: [
       { role: 'system', content:''},
       { role: "user", content: prompt }],

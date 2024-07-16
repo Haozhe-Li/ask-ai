@@ -13,7 +13,7 @@
 1. 创建openai账号，进入[openAI页面](https://platform.openai.com/account/api-keys)查看api key.
 2. 将项目根目录中的.env.example复制一份放在项目根目录，并将名字改为.env，将上一步查到的api key填到.env中
 ```text
-OPENAI_API_KEY=上一步看到的api key
+GROQ_API_KEY=上一步看到的api key
 ```
 3. 打开控制台，进入项目根目录，输入`npm install`安装依赖。
 4. 输入`npm run dev`运行。
@@ -21,7 +21,7 @@ OPENAI_API_KEY=上一步看到的api key
 
 ## 一键免费部署到vercel,公网访问
 
-[![使用Vercel部署](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/wsliliang/ask-ai&env=OPENAI_API_KEY&project-name=ask-ai&repo-name=ask-ai)
+[![使用Vercel部署](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/wsliliang/ask-ai&env=GROQ_API_KEY&project-name=ask-ai&repo-name=ask-ai)
 
 ## 公众号&技术交流
 ![image](./public/qrcode.png)
