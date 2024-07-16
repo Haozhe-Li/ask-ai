@@ -14,8 +14,8 @@ import Link from "next/link";
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
-  const [bio, setBio] = useState("为什么鸡蛋会孵出小鸡？");
-  const [inputHint, setInputHint] = useState("输入您的问题,如:为什么鸡蛋会孵出小鸡?");
+  const [bio, setBio] = useState("I'm feeling lucky today!");
+  const [inputHint, setInputHint] = useState("Enter your question here: e.g. what is the meaning of life?");
   const [vibe, setVibe] = useState<VibeType>("十万个为什么");
   const [generatedAnswers, setGeneratedAnswers] = useState<String>("");
 
@@ -31,7 +31,7 @@ const Home: NextPage = () => {
 
   const generateAnswer = async (e: any) => {
     if (prompt == '') {
-      toast("请输入问题",{icon:'✘'});
+      toast("Empty Input",{icon:'✘'});
       return;
     }
     e.preventDefault();
@@ -45,7 +45,7 @@ const Home: NextPage = () => {
       },
       body: JSON.stringify({
         prompt:prompt,
-        role:'十万个为什么'
+        role:'user'
       }),
     });
 
@@ -79,16 +79,16 @@ const Home: NextPage = () => {
     <>
     <div className="flex max-w-5xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
       <Head>
-        <title>问AI</title>
-        <link rel="icon" href="/why.png" />
+        <title>AI - Haozhe Li</title>
+        <link rel="icon" href="/apple-touch-icon.png" />
       </Head>
 
       <Header />
       <main className="flex flex-1 w-full flex-col items-center justify-stretch text-center px-4 mt-8 sm:mt-10">
         <h1 className="sm:text-4xl text-4xl max-w-[708px] font-bold text-slate-900">
-          无所不知,知无不言
+          Ask whatever you want!
         </h1> 
-        <p className="text-slate-500 mt-1">You ask, AI answer</p>
+        <p className="text-slate-500 mt-1">You are talking to AI which can make mistakes. Please check important info.</p>
         <div className="max-w-xl w-full sm:mt-4 mt-4">
           <textarea
             value={bio}
@@ -102,7 +102,7 @@ const Home: NextPage = () => {
               className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-1 mt-1 hover:bg-black/80 w-full"
               onClick={(e) => generateAnswer(e)}
             >
-              问AI
+              Ask AI
             </button>
           )}
           {loading && (
@@ -134,7 +134,7 @@ const Home: NextPage = () => {
                         className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border"
                         onClick={() => {
                           navigator.clipboard.writeText(generatedAnswer);
-                          toast("回答已复制", {
+                          toast("Copied", {
                             icon: "✔",
                           });
                         }}
