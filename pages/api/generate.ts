@@ -54,7 +54,7 @@ const handler = async (req: Request): Promise<Response> => {
   var sysContent = `You will only reply in plain text but not markdown. Avoid using symbols like * or # which will cause markdown format.`;
 
   const payload: OpenAIStreamPayload = {
-    model: "llama3-8b-8192",
+    model: "llama3-70b-8192",
     messages: [
       { role: 'system', content: sysContent},
       { role: "user", content: prompt }],
